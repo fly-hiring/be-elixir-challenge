@@ -14,5 +14,6 @@ defmodule Fly.Organizations.Organization do
     organization
     |> cast(attrs, [:name, :stripe_customer_id])
     |> validate_required([:name, :stripe_customer_id])
+    |> unique_constraint(:stripe_customer_id)
   end
 end

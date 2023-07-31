@@ -43,4 +43,3 @@ invoice_item_2 = Repo.insert!(%Fly.Billing.InvoiceItem{
 })
 
 Fly.Billing.get_invoice!(invoice.id)
-|> IO.inspect

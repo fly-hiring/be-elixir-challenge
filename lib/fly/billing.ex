@@ -26,8 +26,11 @@ defmodule Fly.Billing do
       [%Invoice{}, ...]
 
   """
-  def list_invoices do
-    Repo.all(Invoice, preload: [:invoice_item])
+  def list_invoices(opts \\ []) do
+    preload = Keyword.get(opts, :preload, [:invoice_items])
+
+    from(Invoice, preload: ^preload)
+    |> Repo.all()
   end
 
   @doc """
@@ -44,8 +47,10 @@ defmodule Fly.Billing do
       ** (Ecto.NoResultsError)
 
   """
-  def get_invoice!(id) do
-    from(i in Invoice)
+  def get_invoice!(id, opts \\ []) do
+    preload = Keyword.get(opts, :preload, [])
+
+    from(i in Invoice, preload: ^preload)
     |> Repo.get!(id)
   end
 

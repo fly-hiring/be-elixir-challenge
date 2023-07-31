@@ -7,16 +7,15 @@ defmodule Fly.BillingFixtures do
   @doc """
   Generate a invoice.
   """
-  def invoice_fixture(attrs \\ %{}) do
-    {:ok, invoice} =
-      attrs
-      |> Enum.into(%{
-        due_date: ~D[2023-07-22],
-        invoiced_at: ~U[2023-07-22 12:39:00Z],
-        stripe_customer_id: "some stripe_customer_id",
-        stripe_id: "some stripe_id"
-      })
-      |> Fly.Billing.create_invoice()
+  def invoice_fixture(organization, attrs \\ %{}) do
+    attrs = attrs
+            |> Enum.into(%{
+              due_date: ~D[2023-07-22],
+              invoiced_at: ~U[2023-07-22 12:39:00Z],
+              stripe_id: "some stripe_id"
+            })
+
+    {:ok, invoice} = Fly.Billing.create_invoice(organization, attrs)
 
     invoice
   end
