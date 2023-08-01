@@ -48,7 +48,6 @@ a way that prioritizes the needs of our users.
 
 Here are some examples of things we love reading in peoples' `NOTES.md` files:
 
-
 * What big customer-facing ideas would you focus on to improve their experience around usage and billing?
 * How would you run the Stripe sync in production? How do we maintain confidence that this sync continues to work?
 * How would you communicate errors and problems to the user?
@@ -56,6 +55,8 @@ Here are some examples of things we love reading in peoples' `NOTES.md` files:
 * What would you include in the next iteration of this feature?
 * If you wanted to implement something, but didn't have time for it, tell us about it, and why it was important.
 * Any other comments, questions, or thoughts that came up.
+
+_Note: these are just examples for you to take inspiration from. You don't need to answer each question explicitly._
 
 ## Tips, more information, etc.
 
