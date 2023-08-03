@@ -18,14 +18,14 @@ take care of billing and invoicing:
 * Handles billing for a bunch of different things. Invoices are a combination of metered product usage, one-off line items, and recurring subscription fees.
 * Generates 10s of thousands of invoices each month.
 * Models our global account data with concepts like `Organizations` and `Users`.
-* Syncs data to Stripe, our payment processor, so we can bill developers for their usage.
+* Syncs regular usage data to Stripe, our payment processor, so we can bill developers for their usage.
 
-Our current process for billing developers looks like this: we sync usage data from a variety of sources to Stripe, which generates an invoice based on Stripe's knowledge of our products and pricing.
+Our current process for billing developers looks like this: we sync usage data from a variety of sources to Stripe. Then Stripe generates an invoice based on Stripe's knowledge of our products and pricing.
 The challenge is that we bill for a whole lot of things in tiny increments, so we need to sync usage data to Stripe _all the time_.
 
 We sync to Stripe so aggressively that we sometimes fail to sync at all, which means we can't tell our users how much they owe.
 
-This strategy of aggressively pushing usage data to Stripe reduces our ability to provide a good developer experience.
+This strategy of aggressively pushing usage data to Stripe reduces our ability to provide a good developer experience (for the developers who use our platform).
 
 ## Your task - the code
 
@@ -79,6 +79,7 @@ you understand the problem. We're not asking you to do extra work.
 There's a lot of extra work you'd do in real life that we don't need to see here. Feel free to skip these things:
 
 * Don't spend time making this perfect or writing tests for every scenario.
+* Don't make a UI for this. We want to hear what you're thinking about UI, but to keep the scope down, we don't want you to implement it!
 * Don't solve every edge case. Rough edges are fine if it helps you move quickly, and you can document your decisions and trade-offs in NOTES.md.
 * In real life, there's probably a lot more database schema. Don't worry about real life, just worry about what we're asking for.
 * Skip quality of life improvements. We're wary of code coverage tools, refactors, testing library changes, etc. We definitely don't want you to spend time on that stuff.
@@ -92,13 +93,15 @@ this is just a starting point!
 
 #### How we're thinking about solving the problem
 
-To solve this, we were thinking that we could compile our own usage data and generate invoices in real-time.
+To solve this, we were thinking that we could compile our own usage data and generate invoices in our app, instead of syncing usage data to Stripe.
 
 Once an invoice is generated, we can sync the invoice, rather than the usage, to Stripe and use that to bill our customers.
 
+You don't have to use this approach, you're free to solve the problem any way you like! This explanation is intended to help you understand the starter code we've provided.
+
 #### Models/schema
 
-We created some invoice models and migrations for you.
+We created some new invoice models and migrations for you. Note that these are for the new system, and aren't used in the current system that we're asking you to replace. So you're safe to make any changes you want here!
 
 In particular, we have:
 
