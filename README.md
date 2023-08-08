@@ -121,7 +121,7 @@ Here are the relevant files:
 #### Mock Stripe library
 
 We've provided you with a mock Stripe library, so you don't need to waste time learning the Stripe API  or 
-[Elixir's defactor Stripe library](https://github.com/beam-community/stripity-stripe). This is intended to make your
+[Elixir's defacto Stripe library](https://github.com/beam-community/stripity-stripe). This is intended to make your
 life easier - only use it if you want to!
 
 In this library we've given you:
