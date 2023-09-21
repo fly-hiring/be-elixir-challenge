@@ -86,6 +86,21 @@ There's a lot of extra work you'd do in real life that we don't need to see here
 
 **_And last, if you know what you're doing, don't spend more than two hours writing the code._** If you are learning, take all the time you need. But if you're experienced with Phoenix (Elixir), databases, and data consistency issues, this should be a quick project.
 
+### How to submit your work
+
+Push your changes to the `main` branch of your private repo, and send us an email (respond in the thread) letting us know you're done so we can review it.
+
+### How we evaluate
+
+A real human (an experienced engineer at Fly) is going to read your notes and your code carefully. The reviewers fill out a rubric based on what they see, looking for the qualities we called out in the [what we're looking for section](#what-were-looking-for). In particular, they look for:
+
+* Your code solves the problem we've asked you to solve.
+* You kept the user experience in mind when you made decisions about what to implement.
+* You didn't cover every single possible error case, but you took care to handle the one or two most important error cases (from the user's perspective), or if you didn't have time for this, you explained in the notes how you would handle it.
+* Your code is generally easy to understand, and you kept control flow simple. We don't care if you know Elixir idioms yet, we just want to see at least vaguely readable code.
+* You kept the UX in mind, when you wrote your notes.
+* Your solution is simple and not over-scoped.
+
 ### Code we've provided you
 
 This section describes the code we wrote for you in this project. Remember that you're allowed to change anything here, 
